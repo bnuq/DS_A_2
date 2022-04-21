@@ -13,10 +13,13 @@ int main(){
 	//find function
 	int index =  paragraph.find(word);
 
+	
+	// size_type::npos 대신 -1 사용 가능
 	if(index!=-1){
 		cout <<"first occ" <<index;
 	}
 
+	// 다음 위치부터 검색
 	index = paragraph.find(word,index+1);
 
 	if(index!=-1){
