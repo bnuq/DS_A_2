@@ -1,0 +1,30 @@
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+int solution(int maxStep, int H)
+{
+    vector<int> nums(H + 1, 0);
+
+    
+    for(int i = 1; i < nums.size(); i++)
+    {
+        if(i <= maxStep) nums[i]++;
+
+        for(int j = 1; j <= maxStep; j++)
+        {
+            if(i < j) continue;
+            nums[i] += nums[i - j];
+        }
+    }
+
+    return nums[H];
+}
+
+
+#include <iostream>
+int main()
+{
+    cout << solution(3, 5) << endl;
+}
